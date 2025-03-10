@@ -7,7 +7,7 @@ const [imageUrl, setImageUrl] = useState('');
   useEffect(() => {
     const getMyProfile = async () => {
       const { data } = await axios.get(
-        "https://pradeep-gopalakrishnan.onrender.com/api/v1/user/portfolio/me",
+        "http://localhost:8000/api/v1/user/portfolio/me",
         { withCredentials: true }
       );
       console.log(data)

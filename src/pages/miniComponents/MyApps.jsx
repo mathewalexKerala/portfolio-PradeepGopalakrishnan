@@ -5,11 +5,13 @@ import React, { useEffect, useState } from "react";
 const MyApps = () => {
   const [apps, setApps] = useState([]);
   useEffect(() => {
+    console.log('hi react here')
     const getMyApps = async () => {
       const { data } = await axios.get(
-        "https://pradeep-gopalakrishnan.onrender.com/api/v1/softwareapplication/getall",
+        "http://localhost:8000/api/v1/softwareapplication/getall",
         { withCredentials: true }
       );
+      console.log('software application',data)
       setApps(data.softwareApplications);
     };
     getMyApps();
@@ -17,7 +19,7 @@ const MyApps = () => {
   return (
     <div className="w-full flex flex-col gap-8 sm:gap-12">
       <h1 className="text-tubeLight-effect text-[2rem] sm:text-[2.75rem] md:text-[3rem] lg:text-[3.8rem] tracking-[15px] dancing_text mx-auto w-fit">
-        MY APPS
+        MY Gallery
       </h1>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
         {apps &&
@@ -29,9 +31,9 @@ const MyApps = () => {
                   alt="skill"
                   className="h-12 sm:h-24 w-auto"
                 />
-                <p className="text-muted-foreground text-center">
+                {/* <p className="text-muted-foreground text-center">
                   {element.name}
-                </p>
+                </p> */}
               </Card>
             );
           })}

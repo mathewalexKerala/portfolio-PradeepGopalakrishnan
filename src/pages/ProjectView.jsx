@@ -19,7 +19,7 @@ const ProjectView = () => {
   useEffect(() => {
     const getProject = async () => {
       await axios
-        .get(`https://pradeep-gopalakrishnan.onrender.com/api/v1/project/get/${id}`, {
+        .get(`http://localhost:8000/api/v1/project/get/${id}`, {
           withCredentials: true,
         })
         .then((res) => {
